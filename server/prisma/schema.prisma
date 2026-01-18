@@ -16,4 +16,43 @@ model users {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
   oauth_id  String   @unique @db.VarChar(191)
+  ChatGroup  ChatGroup[]
+}
+
+model ChatGroup {
+  id String @id @default(uuid()) @db.Uuid
+  user users @relation(fields: [user_id], references: [id])
+  user_id Int
+  title String @db.VarChar(191)
+  passcode String @db.VarChar(20)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  GroupUsers GroupUsers[]
+  Chats Chats[]
+
+  @@index([user_id, createdAt])
+  @@map("chat_groups")
+}
+
+model GroupUsers {
+  id         Int       @id @default(autoincrement())
+  group      ChatGroup @relation(fields: [group_id], references: [id], onDelete: Cascade)
+  group_id   String    @db.Uuid
+  name       String
+  created_at DateTime  @default(now())
+
+  @@map("group_users")
+}
+
+model Chats {
+  id         String    @id @default(uuid())
+  group      ChatGroup @relation(fields: [group_id], references: [id], onDelete: Cascade)
+  group_id   String    @db.Uuid
+  message    String?
+  name       String
+  file       String?
+  created_at DateTime  @default(now())
+
+  @@index([created_at])
+  @@map("chats")
 }
