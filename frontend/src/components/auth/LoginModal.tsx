@@ -13,7 +13,7 @@ import { DialogDescription } from "@radix-ui/react-dialog";
 const handleGoogleLogin = async () => {
 	signIn("google", {
 		redirect: true,
-		callbackUrl: "/",
+		callbackUrl: "/dashboard",
 	});
 };
 
