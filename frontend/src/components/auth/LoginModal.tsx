@@ -25,9 +25,9 @@ export default function LoginModal() {
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
-					<DialogTitle className="text-2xl">Welcome to QuickChat</DialogTitle>
+					<DialogTitle className="text-2xl">Welcome to Hi 5!</DialogTitle>
 					<DialogDescription>
-						QuickChat makes it effortless to create secure chat links and start
+						Hi 5! makes it effortless to create secure chat links and start
 						conversations in seconds.
 					</DialogDescription>
 				</DialogHeader>
