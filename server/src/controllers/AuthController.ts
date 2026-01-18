@@ -34,7 +34,7 @@ class AuthController {
 			const token = jwt.sign(
 				jwtPayload,
 				process.env.JWT_SECRET || "default_secret",
-				{ expiresIn: "1h" },
+				{ expiresIn: "365d" },
 			);
 			return res.status(200).json({
 				message: "Login successful",

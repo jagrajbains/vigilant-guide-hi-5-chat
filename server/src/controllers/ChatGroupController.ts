@@ -18,7 +18,7 @@ class ChatGroupController {
 				},
 			});
 
-			return res.status(201).json(chatgroup);
+			return res.status(201).json({ message: 'Chat group created successfully', data: chatgroup });
 		} catch (error) {
 			return res.status(500).json({ message: "Internal server error" });
 		}
