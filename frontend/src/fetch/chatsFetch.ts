@@ -1,8 +1,11 @@
 import { CHATS_URL } from "@/lib/apiAuthRoutes";
 
-export async function fetchChats(groupId: string) {
+export async function fetchChats(groupId: string, token: string) {
 	const res = await fetch(`${CHATS_URL}/${groupId}`, {
 		cache: "no-cache",
+		headers: {
+			Authorization: token,
+		},
 	});
 
 	if (!res.ok) {
